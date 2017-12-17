@@ -1,2 +1,5 @@
 rootProject.name = 'msdemo'
+include 'postgres_db'
+include 'configserver'
+include 'eureka-server'
 

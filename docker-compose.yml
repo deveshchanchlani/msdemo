@@ -1,0 +1,47 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:3.4.7
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoroot
+      - MONGO_INITDB_ROOT_PASSWORD=mongopass
+    networks:
+      - appNetwork
+  rabbitmq:
+    image: rabbitmq:3
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - appNetwork
+  postgres:
+    image: explorerapp/postgres_db:1.0-SNAPSHOT
+    container_name: explorerDb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=p@ssw0rd
+    networks:
+      - appNetwork
+  configserver:
+    image: explorerapp/configserver:1.0-SNAPSHOT
+    container_name: configserver
+    ports:
+      - "8888:8888"
+    networks:
+      - appNetwork
+  eureka-server:
+    image: explorerapp/eureka-server:1.0-SNAPSHOT
+    container_name: eureka-server1
+    ports:
+      - "8761:8761"
+    networks:
+      - appNetwork
+networks:
+  appNetwork:
+    external: true

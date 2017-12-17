@@ -1,0 +1,21 @@
+apply plugin: 'docker'
+
+group = 'explorerapp'
+
+task image(type: Docker, dependsOn: build){
+    push = true
+    applicationName = jar.baseName
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst{
+        copy {
+            from jar
+            into stageDir
+        }
+        copy {
+            from('src/main/docker') {
+                exclude 'Dockerfile'
+            }
+            into 'build/docker'
+        }
+    }
+}

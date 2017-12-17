@@ -1,0 +1,10 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("se.transmode.gradle:gradle-docker:${dockerGradlePluginVersion}")
+    }
+}
+apply from: "$rootDir/gradle/dockertask.gradle"
