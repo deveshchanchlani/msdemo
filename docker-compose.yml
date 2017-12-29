@@ -30,7 +30,7 @@ services:
       - appNetwork
   configserver:
     image: explorerapp/configserver:1.0-SNAPSHOT
-    container_name: configserver
+    container_name: config-server
     ports:
       - "8888:8888"
     networks:
@@ -40,6 +40,13 @@ services:
     container_name: eureka-server1
     ports:
       - "8761:8761"
+    networks:
+      - appNetwork
+  search-service:
+    image: explorerapp/search-service:1.0-SNAPSHOT
+    container_name: search-service
+    ports:
+      - "8090:8090"
     networks:
       - appNetwork
 networks:
