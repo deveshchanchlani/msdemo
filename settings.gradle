@@ -4,4 +4,6 @@ include 'configserver'
 include 'eureka-server'
 include 'search-service'
 include 'search-service'
+include 'search-apigateway'
+include 'website'
 

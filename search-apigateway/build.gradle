@@ -13,24 +13,18 @@ apply plugin: 'org.springframework.boot'
 apply from: "$rootDir/gradle/dockertask.gradle"
 
 jar {
-    baseName = 'search-service'
-    archiveName = 'search-service.jar'
+    baseName = 'search-apigateway'
+    archiveName = 'search-apigateway.jar'
 }
 
 dependencies {
+    compile("io.springfox:springfox-swagger2:2.3.1")
+    compile("io.springfox:springfox-swagger-ui:2.3.1")
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-
-    compile("org.springframework.cloud:spring-cloud-starter-bus-amqp")
 
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
     compile("org.springframework.cloud:spring-cloud-config-client")
-    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
-
-    runtime("com.h2database:h2")
+    compile("org.springframework.cloud:spring-cloud-starter-zuul")
 }
 
 dependencyManagement {

@@ -13,14 +13,14 @@ apply plugin: 'org.springframework.boot'
 apply from: "$rootDir/gradle/dockertask.gradle"
 
 jar {
-    baseName = 'search-service'
-    archiveName = 'search-service.jar'
+    baseName = 'website'
+    archiveName = 'website.jar'
 }
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
 
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
 
@@ -28,9 +28,6 @@ dependencies {
 
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
     compile("org.springframework.cloud:spring-cloud-config-client")
-    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
-
-    runtime("com.h2database:h2")
 }
 
 dependencyManagement {

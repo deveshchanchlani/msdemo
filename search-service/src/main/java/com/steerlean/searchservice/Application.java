@@ -14,8 +14,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-//import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
-//import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -29,11 +27,6 @@ public class Application implements CommandLineRunner {
 		SpringApplication.run(Application.class, args);
 	}
 	
-//	@Bean
-//	public AlwaysSampler defaultSampler() {
-//		return new AlwaysSampler();
-//	}
-
 	@Override
 	public void run(String... strings) throws Exception {
 		List<Flight> flights = new ArrayList<>();

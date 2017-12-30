@@ -49,6 +49,20 @@ services:
       - "8090:8090"
     networks:
       - appNetwork
+  search-apigateway:
+    image: explorerapp/search-apigateway:1.0-SNAPSHOT
+    container_name: search-apigateway
+    ports:
+      - "8095:8095"
+    networks:
+      - appNetwork
+  website:
+    image: explorerapp/website:1.0-SNAPSHOT
+    container_name: test-client
+    ports:
+      - "8001:8001"
+    networks:
+      - appNetwork
 networks:
   appNetwork:
     external: true

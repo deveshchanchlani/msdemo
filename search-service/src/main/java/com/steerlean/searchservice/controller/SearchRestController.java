@@ -22,10 +22,7 @@ class SearchRestController {
 
     private SearchComponent searchComponent;
 
-    // @Autowired
-    // private RestTemplate restTemplate;
-
-//    @Value("${originairports.shutdown}")
+    @Value("${originairports.shutdown}")
     private String originAirportShutdownList;
 
     @Autowired
@@ -47,7 +44,7 @@ class SearchRestController {
 
     @RequestMapping(value = "/hub", method = RequestMethod.GET)
     String getHub() {
-        logger.info(" Searching for Hub, received from search-apigateway ");
+        logger.info(" Searching for Hub, received from searchApigateway ");
         return "SFO";
     }
 
