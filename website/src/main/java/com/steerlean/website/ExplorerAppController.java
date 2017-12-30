@@ -16,8 +16,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
-public class BrownFieldSiteController {
-    private static final Logger logger = LoggerFactory.getLogger(BrownFieldSiteController.class);
+public class ExplorerAppController {
+    private static final Logger logger = LoggerFactory.getLogger(ExplorerAppController.class);
 
     @Autowired
     RestTemplate searchClient;
