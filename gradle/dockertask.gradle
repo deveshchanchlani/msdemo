@@ -12,6 +12,12 @@ task image(type: Docker, dependsOn: build){
             into stageDir
         }
         copy {
+            from('../gradle') {
+                include 'startService.sh'
+            }
+            into 'build/docker'
+        }
+        copy {
             from('src/main/docker') {
                 exclude 'Dockerfile'
             }

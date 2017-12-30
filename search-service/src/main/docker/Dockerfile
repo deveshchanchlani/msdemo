@@ -1,5 +1,7 @@
 FROM frolvlad/alpine-oraclejdk8
 VOLUME /tmp
 ADD search-service.jar search-service.jar
+COPY startService.sh /startService.sh
+RUN chmod +x /startService.sh
 EXPOSE 8090
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar","/search-service.jar"]
+ENTRYPOINT ["./startService.sh", "eureka-server1", "8761", "/search-service.jar"]
